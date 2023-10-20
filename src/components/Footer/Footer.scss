@@ -1,0 +1,68 @@
+@import "../../theme/colors";
+
+.container-footer {
+  padding: 64px 128px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $color-bg-dark;
+  color: $color-logo;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+  li + li {
+    padding-top: 1rem;
+  }
+}
+
+.footer__contact-link {
+  color: $color-logo;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.copyright {
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .container-footer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-footer {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-footer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  footer {
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  .footer__logo {
+    width: 100px;
+    height: 100px;
+  }
+}

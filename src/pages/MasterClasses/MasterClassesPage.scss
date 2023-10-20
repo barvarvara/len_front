@@ -1,0 +1,72 @@
+@import "../../theme/colors";
+
+@font-face {
+  font-family: Ardeco;
+  src: url("../../../../lab2/src/assets/fonts/ardeco/Ardeco.ttf") format("truetype");
+}
+
+.container-title {
+  font-size: 58px;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 64px;
+}
+
+.masterclasses-container {
+  padding: 64px 128px;
+
+  h2 {
+    font-size: 32px;
+    font-weight: 100;
+    margin-bottom: 48px;
+  }
+}
+
+.container-title {
+  padding-left: 128px;
+  padding-right: 128px;
+}
+
+.kids {
+  background-color: $color-bg-lighter;
+
+  .card {
+    &:hover {
+      background-color: $color-bg;
+    }
+  }
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+
+@media (max-width: 992px) {
+  .masterclasses-container, .container-title {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .container-title {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-title {
+    font-size: 42px;
+    /*letter-spacing: -1.25px;*/
+  }
+}

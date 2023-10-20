@@ -1,0 +1,21 @@
+@import "../../../theme/colors";
+
+.logo {
+  display: block;
+  width: 80px;
+  height: 80px;
+  content: "";
+
+  background: $color-logo;
+
+  mask-image: url("assets/len_ceramic2_02.png");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,45 @@
+@import "../../../../theme/colors";
+
+.invitation {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgb(87, 71, 58)), url("assets/home1.jpg");
+  background-size: cover;
+  background-position: bottom;
+  color: $color-bg;
+  font-size: 64px;
+  text-align: center;
+
+  p + p {
+    margin-top: 64px;
+  }
+}
+
+.invitation__address {
+  font-size: 2rem;
+
+  a {
+    color: $color-bg;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+@media (max-width: 576px) {
+  .invitation {
+    font-size: 32px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .invitation__address {
+    font-size: 1.2rem;
+
+    a {
+      display: block;
+    }
+  }
+
+}

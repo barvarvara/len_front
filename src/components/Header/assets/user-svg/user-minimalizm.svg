@@ -1,0 +1,10 @@
+<svg width="43" height="55" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_3">
+   <path id="svg_1" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#000000" d="m32.69617,18.41176c0,6.30352 -5.11022,11.41374 -11.41374,11.41374c-6.30352,0 -11.41374,-5.11022 -11.41374,-11.41374c0,-6.30364 5.11022,-11.41374 11.41374,-11.41374c3.02721,0 5.93029,1.20252 8.07066,3.343c2.14065,2.1405 3.34308,5.04362 3.34308,8.07074z" clip-rule="evenodd" fill-rule="evenodd"/>
+   <path id="svg_2" stroke-linecap="round" stroke-width="1.5" stroke="#000000" d="m1.30839,46.94582c12.23516,-7.58757 27.71285,-7.58757 39.94809,0"/>
+  </g>
+ </g>
+</svg>

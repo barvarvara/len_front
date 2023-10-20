@@ -1,0 +1,15 @@
+@import "../../../../theme/colors";
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 16px;
+  background-color: $color-bg-lighter;
+}
+
+@media (max-width: 768px) {
+  .services {
+    flex-direction: column;
+    row-gap: 64px;
+  }
+}

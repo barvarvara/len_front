@@ -1,0 +1,42 @@
+@import "../../../theme/colors";
+
+.link {
+  display: inline-block;
+  cursor: pointer;
+  color: $color-text-main;
+  text-decoration: none;
+  font-size: 1.8rem;
+  padding: 16px 64px;
+
+  border: 1px solid;
+  border-radius: 50px;
+
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $color-bg-teal;
+  }
+}
+
+.invitation__link {
+  color: $color-bg;
+  margin-top: 96px;
+}
+
+.about__link {
+  justify-self: start;
+  align-self: end;
+}
+
+@media (max-width: 1200px) {
+  .link {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__link {
+    justify-self: center;
+    font-size: 1.3rem;
+  }
+}

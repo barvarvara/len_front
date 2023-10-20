@@ -1,0 +1,73 @@
+@import "../../theme/colors";
+
+.login-container {
+  text-align: center;
+  white-space: normal;
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  margin: 64px 32px;
+  padding: 32px;
+  max-width: 400px;
+
+  border: 2px solid $color-logo;
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.login__logo {
+  width: 144px;
+  height: 144px;
+  align-self: center;
+}
+
+button {
+  padding: 16px 64px;
+  margin-top: 32px;
+  outline: none;
+  background-color: transparent;
+
+  border: $color-logo solid 1px;
+  border-radius: 50px;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 18px;
+  color: $color-text-main;
+
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background: $color-logo;
+  }
+}
+
+@media (max-width: 576px) {
+  button {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
+
+.help-link {
+  align-self: center;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: $color-logo;
+
+    &:hover {
+      color: $color-text-main;
+    }
+  }
+
+  a + a {
+    margin-left: 16px;
+  }
+}

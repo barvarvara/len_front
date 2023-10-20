@@ -1,0 +1,131 @@
+@import "../../../../theme/colors";
+
+.services__card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  img {
+    position: relative;
+    max-width: none;
+    min-height: 100%;
+    width: calc(100% + 30px);
+    opacity: 0.9;
+
+    transform: translate3d(-30px, 0, 0);
+    transition: opacity 0.35s, transform 0.35s;
+  }
+
+  figcaption {
+    text-align: left;
+    color: $color-text-main;
+
+    &> div {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 2rem;
+      width: 100%;
+      height: 50%;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(72, 76, 97, 0) 0%, $color-bg-op 75%);
+      content: '';
+      opacity: 0;
+    }
+  }
+
+  p {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    transition: opacity 0.2s, transform 0.35s;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  h2, p {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+    font-size: 0;
+  }
+}
+
+
+.services__card:hover img,
+.services__card:hover h2,
+.services__card:hover p,
+.services__card:hover figcaption::before {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.35s;
+}
+
+@media (max-width: 1200px) {
+  .services__card h2 {
+    font-size: 1.22rem;
+  }
+
+  .services__card p {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .services__card figcaption > div {
+    padding: 1rem;
+    height: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services__card h2 {
+    font-size: 2rem;
+  }
+
+  .services__card p {
+    font-size: 1.3rem;
+  }
+
+  .services__card img,
+  .services__card h2,
+  .services__card p,
+  .services__card figcaption::before {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .services__card figcaption::before {
+    --color-bg-opacity-less: rgba(236, 232, 228, 0.56);
+    background: var(--color-bg-opacity-less);
+  }
+
+  .services__card figcaption > div {
+    /*padding: 1rem;*/
+    height: 80%;
+  }
+
+  .services__card p {
+    font-size: 1rem;
+  }
+}
