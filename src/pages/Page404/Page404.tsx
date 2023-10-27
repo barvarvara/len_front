@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import CustomButton from '../../components/ui/CustomButton';
+import Link from '../../components/ui/CustomLink';
 import { useNavigate } from "react-router-dom";
 
 export type Page404Props = {};
@@ -14,7 +14,7 @@ const Page404: React.FC<Page404Props> = () => {
           Извините, страница не найдена!
         </h3>
         <div className="button">
-          <CustomButton
+          <Link
             title={'Вернуться'}
             onPress={() => navigate("/")}
           />

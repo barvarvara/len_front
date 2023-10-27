@@ -1,6 +1,6 @@
 import React from 'react';
 import "./AboutSection.scss"
-import CustomButton from "../../../../components/ui/CustomButton/CustomButton";
+import Link from "../../../../components/ui/CustomLink/Link";
 import { useNavigate } from 'react-router-dom';
 
 const AboutSection = () => {
@@ -25,9 +25,9 @@ const AboutSection = () => {
         </p>
       </div>
 
-      <CustomButton title="О гончарке"
-                    addStyle="about__link"
-                    onPress={() => navigate("/admin")}
+      <Link title="О гончарке"
+            addStyle="about__link"
+            onPress={() => navigate("/admin")}
       />
 
       <img className="about__photo" src={require("./assets/alena5-sqr.jpg")} alt=""/>

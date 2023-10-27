@@ -1,4 +1,4 @@
-@import "../../theme/colors";
+@import "../../../theme/colors";
 
 .container-header {
   padding-left: 128px;
@@ -40,7 +40,7 @@ header {
   background: $color-text-main;
   width: 16px;
   height: 12px;
-  mask-image: url("../../assets/icons/arrows/list-arrow.svg");
+  mask-image: url("assets/list-arrow.svg");
   mask-repeat: no-repeat;
 
   margin-left: 4px;

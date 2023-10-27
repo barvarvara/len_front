@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton from "../../../../components/ui/CustomButton/CustomButton";
+import Link from "../../../../components/ui/CustomLink/Link";
 import "./InvitationSection.scss"
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const InvitationSection: React.FC<InvitationSectionProps> = () => {
         </a>
       </p>
 
-      <CustomButton title={"Записаться"} addStyle="invitation__link" onPress={() => navigate("/")}/>
+      <Link title={"Записаться"} addStyle="invitation__link" onPress={() => navigate("/")}/>
     </section>
   );
 };

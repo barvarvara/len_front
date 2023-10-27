@@ -1,5 +1,5 @@
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../components/ui/Header';
+import Footer from '../../components/ui/Footer';
 import React, { ReactNode } from 'react';
 
 export type PageLayoutProps = {
@@ -7,7 +7,7 @@ export type PageLayoutProps = {
   children: ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({
+const ProfilePageLayout: React.FC<PageLayoutProps> = ({
   title,
   children
 }) => {
@@ -26,4 +26,4 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   )
 }
 
-export default PageLayout;
+export default ProfilePageLayout;

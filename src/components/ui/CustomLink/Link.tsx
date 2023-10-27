@@ -1,5 +1,5 @@
 import React from 'react'
-import './CustomButton.scss'
+import './Link.scss'
 
 export type CustomButtonProps = {
   height?: number;
@@ -16,7 +16,7 @@ export type CustomButtonProps = {
   addStyle?: string;
 };
 
-const CustomButton: React.FC<CustomButtonProps> = ({
+const Link: React.FC<CustomButtonProps> = ({
   height,
   fontSize,
   title,
@@ -40,4 +40,4 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   );
 };
 
-export default CustomButton;
+export default Link;

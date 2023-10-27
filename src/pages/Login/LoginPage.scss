@@ -26,8 +26,23 @@
   align-self: center;
 }
 
+.login__input {
+  border: $color-logo solid 1px;
+  margin-top: 16px;
+
+  input {
+    background-color: transparent;
+    color: $color-text-main;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 20px;
+    width: 100%;
+  }
+}
+
 button {
-  padding: 16px 64px;
+  padding: 8px 64px;
   margin-top: 32px;
   outline: none;
   background-color: transparent;

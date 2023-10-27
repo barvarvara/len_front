@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import './SideBarItem.scss'
+import './Tab.scss'
 
 export type SecondMenuItemProps = {
   addStyle?: string,
@@ -7,7 +7,7 @@ export type SecondMenuItemProps = {
   children: ReactNode
 }
 
-const SecondMenuItem: React.FC<SecondMenuItemProps> = ({
+const Tab: React.FC<SecondMenuItemProps> = ({
   href,
   children
 }) => {
@@ -22,4 +22,4 @@ const SecondMenuItem: React.FC<SecondMenuItemProps> = ({
   );
 };
 
-export default SecondMenuItem;
+export default Tab;

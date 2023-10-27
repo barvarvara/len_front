@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss'
-import Logo from '../ui/Logo';
+import Logo from '../Logo';
 
 export type FooterProps = {};
 

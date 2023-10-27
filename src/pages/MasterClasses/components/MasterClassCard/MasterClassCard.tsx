@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton from '../../../../components/ui/CustomButton/CustomButton';
+import Link from '../../../../components/ui/CustomLink/Link';
 import './MasterClassCard.scss'
 import { useNavigate } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const MasterClassCard: React.FC<MasterClassCardProps> = ({
         <p>{description}</p>
 
         <div>
-          <CustomButton title="Записаться" addStyle="link" onPress={() => {navigate("/")}}></CustomButton>
+          <Link title="Записаться" addStyle="link" onPress={() => {navigate("/")}}></Link>
         </div>
       </figcaption>
 
