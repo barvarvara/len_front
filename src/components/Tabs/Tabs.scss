@@ -1,0 +1,33 @@
+@import "../../theme/colors";
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.tab {
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &__selected {
+    border-bottom: 1px solid $color-text-main-dark;
+  }
+
+  &:hover {
+    background-color: $color-bg-lighter;
+  }
+
+  &label {
+    color: $color-text-main;
+
+    &__selected {
+      color: $color-text-main-dark;
+    }
+  }
+}
+
+
+

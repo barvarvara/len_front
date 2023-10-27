@@ -5,6 +5,7 @@ import MasterClasses from './pages/MasterClasses';
 import AdminPage from './pages/AdminPage';
 import { Page404 } from './pages/Page404';
 import MainLayout from './layouts/MainLayout';
+import ProfilePageLayout from './layouts/ProfilePageLayout';
 
 type ProtectedRouteProps = {
   isAllowed: boolean;
@@ -33,7 +34,7 @@ export default function Router() {
         //   isAllowed={userRole.includes("admin") || userRole.includes("jdg-chk") || userRole.includes("jdg-res")}
         //   redirectPath="/adminAuth"
         // >
-        <AdminPage/>
+        <ProfilePageLayout title={"Админка"}> <AdminPage/> </ProfilePageLayout>
         // </ProtectedRoute>
       ),
     },
