@@ -1,10 +1,6 @@
 import React from 'react'
 import './Tabs.scss'
-
-export type Tab = {
-  id: string | number;
-  label: string | number;
-}
+import { Tab } from '../../types/types';
 
 export type TabsProps = {
   selectedId: string | number;
@@ -23,10 +19,12 @@ const Tabs: React.FC<TabsProps> = ({
     <div className={"tabs"}>
       {tabs &&
         tabs.map(tab => (
-            <div className={`tab ${className}`}
+            <div className={`tab ${className} ${tab.id === selectedId ? "tab_selected" : "" }`}
                  key={tab.id}
                  onClick={() => onClick(tab.id)}>
-              {tab.label}
+              <p className={`tab__label ${tab.id === selectedId ? "tab__label_selected" : "" }`}>
+                {tab.label}
+              </p>
             </div>
         ))}
     </div>

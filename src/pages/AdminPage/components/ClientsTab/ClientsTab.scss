@@ -1,6 +1,17 @@
 @import "../../../../theme/colors";
 
-.admin-panel{
-  padding-top: 32px;
-  padding-bottom: 32px;
+.clients-tab {
+  margin-top: 24px;
+
+  &__filter {
+    border: 1px $color-text-main solid;
+    border-radius: 24px;
+    padding: 24px 32px;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 200;
+    }
+  }
+
 }

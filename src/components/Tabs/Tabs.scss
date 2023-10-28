@@ -7,24 +7,20 @@
 }
 
 .tab {
-  padding: 16px 24px;
+  padding: 0 24px;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.15s;
 
-  &__selected {
-    border-bottom: 1px solid $color-text-main-dark;
-  }
-
-  &:hover {
-    background-color: $color-bg-lighter;
-  }
-
-  &label {
+  &__label {
     color: $color-text-main;
 
-    &__selected {
-      color: $color-text-main-dark;
+    &:hover {
+      color: $color-text-main-op;
+    }
+
+    &_selected {
+      color: $color-text-main-op;
+      border-bottom: 1.5px solid $color-air-blue;
     }
   }
 }

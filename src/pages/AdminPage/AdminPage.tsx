@@ -1,16 +1,20 @@
 import './AdminPage.scss';
 import React, { FC, useState } from 'react'
-import Tabs, { Tab } from '../../components/Tabs/Tabs';
-import ClientsTabPage from './components/ClientsTab';
+import Tabs from '../../components/Tabs';
+import ClientsTab from './components/ClientsTab';
+import ProductsTab from './components/ProductsTab';
+import CertificatesTab from './components/CertificatesTab';
+import ClassesTab from './components/ClassesTab';
+import { Tab } from '../../types/types';
 
 export type AdminPageProps = {}
 
 const AdminPage: React.FC<AdminPageProps> = () => {
   const tabPages: Record<string, FC> = {
-    '0': ClientsTabPage,
-    '1': ClientsTabPage,
-    '2': ClientsTabPage,
-    '3': ClientsTabPage
+    '0': ClientsTab,
+    '1': ClassesTab,
+    '2': ProductsTab,
+    '3': CertificatesTab
   }
 
   const tabs: Tab[] = [
@@ -26,17 +30,16 @@ const AdminPage: React.FC<AdminPageProps> = () => {
     setSelectedId(id);
   }
 
+  const TabPage = tabPages[selectedId]
 
   return (
-    <>
-      <div className="admin-panel container">
-        <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabCkick}/>
+    <div className="admin-panel container">
+      <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabCkick}/>
 
-        <div className="admin-panel_tab-pages">
-
-        </div>
+      <div className="admin-panel_tab-pages">
+        <TabPage/>
       </div>
-    </>
+    </div>
   )
 }
 
