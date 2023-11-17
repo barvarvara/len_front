@@ -1,6 +1,8 @@
 import React, {useEffect} from "react"
 import Logo from "../../components/ui/Logo";
 import "./LoginPage.scss"
+import TextInput from '../../components/ui/TextInput';
+import Button from '../../components/ui/Button';
 
 export type LoginPageProps = {}
 
@@ -17,13 +19,10 @@ const LoginPage: React.FC<LoginPageProps> = () => {
           <Logo addStyle="login__logo"/>
 
           <form>
-            <div className="login__input">
-              <label> <input className="form-text-input" placeholder="89012345678"/> </label>
-            </div>
-            <div className="login__input">
-              <label> <input className="form-text-input" placeholder="Пароль"/> </label>
-            </div>
-            <button type="submit">Войти</button>
+            <TextInput placeholder="89012345678" addStyle="form-text-input" />
+            <TextInput placeholder="Пароль" addStyle="form-text-input" />
+
+            <Button type="submit" onPress={() => {}} title={"Войти"}/>
           </form>
 
           {/*<form>*/}

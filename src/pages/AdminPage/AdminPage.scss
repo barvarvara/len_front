@@ -1,6 +1,21 @@
 @import "../../theme/colors";
 
-.admin-panel{
+.admin-panel {
   padding-top: 32px;
   padding-bottom: 32px;
+
+  &__tab-pages {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-panel {
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    &__tab-pages {
+      margin-top: 24px;
+    }
+  }
 }

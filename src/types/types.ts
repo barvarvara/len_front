@@ -9,13 +9,19 @@ export type ClientType = {
   definition: string;
 }
 
+export type ClientStatus = {
+  id: number;
+  name: string;
+  definition: string;
+}
+
 export type Client = {
   id: number;
   name: string;
-  fcs: string;
-  client_type: string | number;
+  fcs: string | null;
+  client_type: ClientType;
   contacts: string | number;
-  client_status: string | number;
+  client_status: ClientStatus;
 }
 
 export type ContactFilter = {

@@ -36,7 +36,7 @@ const AdminPage: React.FC<AdminPageProps> = () => {
     <div className="admin-panel container">
       <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabCkick}/>
 
-      <div className="admin-panel_tab-pages">
+      <div className="admin-panel__tab-pages">
         <TabPage/>
       </div>
     </div>

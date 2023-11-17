@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Link from '../../components/ui/CustomLink';
+import Link from '../../components/ui/Link';
 import { useNavigate } from "react-router-dom";
 
 export type Page404Props = {};

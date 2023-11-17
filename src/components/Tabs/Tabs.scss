@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
+  row-gap: 16px;
 }
 
 .tab {
@@ -20,10 +21,13 @@
 
     &_selected {
       color: $color-text-main-op;
-      border-bottom: 1.5px solid $color-air-blue;
+      border-bottom: 1.5px solid $color-main-teal;
     }
   }
 }
 
-
-
+@media (max-width: 576px) {
+  .tab {
+    font-size: 14px;
+  }
+}

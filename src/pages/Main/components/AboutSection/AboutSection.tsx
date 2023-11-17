@@ -1,6 +1,6 @@
 import React from 'react';
 import "./AboutSection.scss"
-import Link from "../../../../components/ui/CustomLink/Link";
+import Link from "../../../../components/ui/Link/Link";
 import { useNavigate } from 'react-router-dom';
 
 const AboutSection = () => {

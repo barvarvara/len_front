@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '../../../../components/ui/CustomLink/Link';
+import Link from '../../../../components/ui/Link/Link';
 import './MasterClassCard.scss'
 import { useNavigate } from 'react-router-dom';
 

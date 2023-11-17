@@ -16,7 +16,7 @@ const Tabs: React.FC<TabsProps> = ({
   onClick
 }) => {
   return (
-    <div className={"tabs"}>
+    <div className="tabs">
       {tabs &&
         tabs.map(tab => (
             <div className={`tab ${className} ${tab.id === selectedId ? "tab_selected" : "" }`}
