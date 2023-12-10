@@ -1,9 +1,12 @@
 import './ClientsTab.scss';
-import React from 'react'
+import React, { useState } from 'react'
 import TextInput from '../../../../components/ui/TextInput';
 import Button from '../../../../components/ui/Button';
 import { Client, ClientType } from '../../../../types/types';
 import ClientCard from '../ClientCard';
+
+import axios from 'axios';
+import { CONFIG } from '../../../../config';
 
 export type ClientsTabProps = {}
 
@@ -28,6 +31,7 @@ const ClientsTab: React.FC<ClientsTabProps> = () => {
     },
   ]
 
+
   return (
     <div className="clients-tab">
 
@@ -41,13 +45,13 @@ const ClientsTab: React.FC<ClientsTabProps> = () => {
         </div>
 
         <div className="clients-tab__filter__btns">
-          <Button addStyle={'btn-search'} onPress={() => {}} type={'submit'} title={'Поиск'}/>
+          <Button addStyleClass={'btn-search'} onPress={() => {}} type={'submit'} title={'Поиск'}/>
           <Button onPress={() => {}} type={'button'} title={'Выгрузить в excel'}/>
         </div>
 
       </div>
 
-      <Button addStyle={'btn-add-client'} onPress={() => {}} title={'Добавить'}/>
+      <Button addStyleClass={'btn-add-client'} onPress={() => {}} title={'Добавить'}/>
 
       <div className="clients-tab__clients">
         {clients &&

@@ -1,13 +1,20 @@
 import './AdminPage.scss';
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import Tabs from '../../components/Tabs';
 import ClientsTab from './components/ClientsTab';
 import ProductsTab from './components/ProductsTab';
 import CertificatesTab from './components/CertificatesTab';
 import ClassesTab from './components/ClassesTab';
-import { Tab } from '../../types/types';
+import { Client, Tab } from '../../types/types';
+import axios from 'axios';
+import { CONFIG } from '../../config';
 
 export type AdminPageProps = {}
+
+type GetClientsResponse = {
+  data: Client[]
+}
+
 
 const AdminPage: React.FC<AdminPageProps> = () => {
   const tabPages: Record<string, FC> = {
@@ -26,15 +33,19 @@ const AdminPage: React.FC<AdminPageProps> = () => {
 
   const [selectedId, setSelectedId] = useState(tabs[0].id);
 
-  const handleTabCkick = (id: string | number) => {
+  const handleTabClick = (id: string | number) => {
     setSelectedId(id);
   }
+
+
+  const [clients, setClients] = useState([]);
+
 
   const TabPage = tabPages[selectedId]
 
   return (
     <div className="admin-panel container">
-      <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabCkick}/>
+      <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabClick}/>
 
       <div className="admin-panel__tab-pages">
         <TabPage/>

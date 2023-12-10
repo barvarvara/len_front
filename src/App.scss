@@ -1,4 +1,3 @@
-//@import '~bootstrap/scss/bootstrap';
 * {
   margin: 0;
   padding: 0;
@@ -8,24 +7,24 @@
 
 @font-face {
   font-family: Rawline;
-  src: url("../../lab2/src/assets/fonts/rawline/rawline-100.ttf") format("truetype");
+  src: url("assets/fonts/rawline/rawline-100.ttf") format("truetype");
   font-weight: 100;
 }
 
 @font-face {
   font-family: Rawline;
-  src: url("../../lab2/src/assets/fonts/rawline/rawline-200.ttf") format("truetype");
+  src: url("assets/fonts/rawline/rawline-200.ttf") format("truetype");
   font-weight: 200;
 }
 
 @font-face {
   font-family: Rawline;
-  src: url("../../lab2/src/assets/fonts/rawline/rawline-300.ttf") format("truetype");
+  src: url("assets/fonts/rawline/rawline-300.ttf") format("truetype");
   font-weight: 300;
 }
 
 @font-face {
   font-family: Rawline;
-  src: url("../../lab2/src/assets/fonts/rawline/rawline-400.ttf") format("truetype");
+  src: url("assets/fonts/rawline/rawline-400.ttf") format("truetype");
   font-weight: 400;
 }

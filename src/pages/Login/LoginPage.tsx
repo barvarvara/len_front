@@ -22,7 +22,7 @@ const LoginPage: React.FC<LoginPageProps> = () => {
             <TextInput placeholder="89012345678" addStyle="form-text-input" />
             <TextInput placeholder="Пароль" addStyle="form-text-input" />
 
-            <Button type="submit" onPress={() => {}} title={"Войти"}/>
+            <Button type="submit" addStyleClass="btn__login" onPress={() => {}} title={"Войти"}/>
           </form>
 
           {/*<form>*/}
