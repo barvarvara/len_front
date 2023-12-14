@@ -1,23 +1,18 @@
 import './AdminPage.scss';
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import Tabs from '../../components/Tabs';
 import ClientsTab from './components/ClientsTab';
 import ProductsTab from './components/ProductsTab';
 import CertificatesTab from './components/CertificatesTab';
 import ClassesTab from './components/ClassesTab';
 import { Client, Tab } from '../../types/types';
-import axios from 'axios';
-import { CONFIG } from '../../config';
+import { useGetClientsQuery } from '../../logic/user/user.api';
 
 export type AdminPageProps = {}
 
-type GetClientsResponse = {
-  data: Client[]
-}
-
 
 const AdminPage: React.FC<AdminPageProps> = () => {
-  const tabPages: Record<string, FC> = {
+  const tabPages: Record<string, FC<any>> = {
     '0': ClientsTab,
     '1': ClassesTab,
     '2': ProductsTab,
@@ -37,18 +32,17 @@ const AdminPage: React.FC<AdminPageProps> = () => {
     setSelectedId(id);
   }
 
-
-  const [clients, setClients] = useState([]);
-
-
   const TabPage = tabPages[selectedId]
+
+  const { data } = useGetClientsQuery()
+  console.log(data)
 
   return (
     <div className="admin-panel container">
       <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabClick}/>
 
       <div className="admin-panel__tab-pages">
-        <TabPage/>
+        <TabPage clients={data}/>
       </div>
     </div>
   )
