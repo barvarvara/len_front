@@ -2,19 +2,25 @@ import './ClientsTab.scss';
 import React, { useState } from 'react'
 import TextInput from '../../../../components/ui/TextInput';
 import Button from '../../../../components/ui/Button';
-import { Client, ClientType } from '../../../../types/types';
+import { Client, ClientType, Contact } from '../../../../types/types';
 import ClientCard from '../ClientCard';
+import { useGetClientsQuery } from '../../../../logic/user/user.api';
 
 export type ClientsTabProps = {
-  clients: Client[]
+  data: Client[],
+  onPressClient: (client: Client) => void,
 }
-
 
 const ClientsTab: React.FC<ClientsTabProps> = (
   {
-    clients
+    data,
+    onPressClient
   }
 ) => {
+
+  const onPressClientInner = (client: Client) => {
+    onPressClient(client)
+  }
 
   return (
     <div className="clients-tab">
@@ -38,10 +44,11 @@ const ClientsTab: React.FC<ClientsTabProps> = (
       <Button addStyleClass={'btn-add-client'} onPress={() => {}} title={'Добавить'}/>
 
       <div className="clients-tab__clients">
-        {clients &&
-          clients.map((client) => (
+        {data &&
+          data.map((client) => (
             <ClientCard client={client}
                         key={client.id}
+                        onPressClient={(client) => onPressClientInner(client)}
             />
           ))}
       </div>

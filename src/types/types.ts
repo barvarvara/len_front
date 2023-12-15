@@ -20,8 +20,20 @@ export type Client = {
   name: string;
   fcs: string | null;
   client_type: ClientType;
-  contacts: string | number;
   client_status: ClientStatus;
+}
+
+export type ClientsContact = {
+  fcs: string;
+  phone: string;
+}
+
+export type Contact = {
+  id: number;
+  fcs: string;
+  phone: string;
+  birthday: string;
+  ban_on_spam: boolean;
 }
 
 export type ContactFilter = {

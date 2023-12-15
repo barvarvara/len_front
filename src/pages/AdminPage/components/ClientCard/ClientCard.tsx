@@ -1,16 +1,18 @@
 import React from 'react';
 import './ClientCard.scss'
-import { Client } from '../../../../types/types';
+import { Client, Contact } from '../../../../types/types';
 
 export type ClientCardProps = {
   client: Client,
+  onPressClient: (c: Client) => void
 }
 
 const ClientCard: React.FC<ClientCardProps> = ({
-  client
+  client,
+  onPressClient
 }) => {
   return (
-    <div className="client-card">
+    <div className="client-card" onClick={() => onPressClient(client)}>
       <h4>{client.name}</h4>
       <p>{client.fcs}</p>
 
@@ -18,6 +20,8 @@ const ClientCard: React.FC<ClientCardProps> = ({
         <p>{client.client_status.name}</p>
         <p>{client.client_type.name}</p>
       </div>
+
+
 
     </div>
   );

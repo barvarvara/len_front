@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { CONFIG } from '../../config';
-import { Client } from '../../types/types';
+import { Client, Contact } from '../../types/types';
 
 type ClientsResponse = Client[]
+type ClientContactsResponse = Contact[]
 
 export const userApi = createApi({
     reducerPath: 'clients',
@@ -13,17 +14,19 @@ export const userApi = createApi({
       getClients: build.query<ClientsResponse, void>({
         query: () => ({
             url: 'clients/',
-            per_page: 10
           }
         )
+      }),
+
+      getClientContacts: build.query<ClientContactsResponse, number>({
+        query: (client_id) => ({
+          url: `clients/${client_id}/contacts/`
+        })
       })
-      // ,
-      //
-      // addClient: build.mutation(
-      //
-      // )
+
+
     })
   }
 )
 
-export const {useGetClientsQuery} = userApi
+export const { useGetClientsQuery, useLazyGetClientContactsQuery } = userApi
