@@ -4,17 +4,19 @@ import TextInput from '../../../../components/ui/TextInput';
 import Button from '../../../../components/ui/Button';
 import { Client, ClientType, Contact } from '../../../../types/types';
 import ClientCard from '../ClientCard';
-import { useGetClientsQuery } from '../../../../logic/user/user.api';
+import { useGetClientsQuery } from '../../../../logic/user/clients.api';
 
 export type ClientsTabProps = {
   data: Client[],
   onPressClient: (client: Client) => void,
+  onPressCreateClient: () => void,
 }
 
 const ClientsTab: React.FC<ClientsTabProps> = (
   {
     data,
-    onPressClient
+    onPressClient,
+    onPressCreateClient
   }
 ) => {
 
@@ -29,9 +31,9 @@ const ClientsTab: React.FC<ClientsTabProps> = (
         <h3> Поиск по контактным данным </h3>
 
         <div className="clients-tab__filter__inputs">
-          <TextInput placeholder={'Фамилия'}/>
-          <TextInput placeholder={'Имя'}/>
-          <TextInput placeholder={'Номер телефона'}/>
+          <TextInput placeholder={'Фамилия'} onChangeText={(srt) => {}}/>
+          <TextInput placeholder={'Имя'} onChangeText={(srt) => {}}/>
+          <TextInput placeholder={'Номер телефона'} onChangeText={(srt) => {}}/>
         </div>
 
         <div className="clients-tab__filter__btns">
@@ -41,7 +43,7 @@ const ClientsTab: React.FC<ClientsTabProps> = (
 
       </div>
 
-      <Button addStyleClass={'btn-add-client'} onPress={() => {}} title={'Добавить'}/>
+      <Button addStyleClass={'btn-add-client'} onPress={() => {onPressCreateClient()}} title={'Добавить'}/>
 
       <div className="clients-tab__clients">
         {data &&

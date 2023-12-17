@@ -14,7 +14,7 @@ export type ButtonProps = {
   icon?: React.ReactNode;
   onPress: () => void;
   addStyleClass?: string;
-  type ?: "button" | "submit" | "reset" | undefined;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -34,7 +34,11 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      onClick={() => !disabled && onPress()}
+      onClick={(event) => {
+        event.preventDefault()
+        return !disabled && onPress()
+      }
+      }
       className={`button ${addStyleClass}`}
       type={type}
     >

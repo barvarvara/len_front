@@ -49,14 +49,17 @@ const ClientModal: React.FC<ClientCardProps> = ({
         <h4>{client.name}</h4>
         <h5>{client.fcs}</h5>
 
-        <p>статус: {client.client_status.name}</p>
-        <p>тип: {client.client_type.name}</p>
+        <div>
+          <p>статус: {client.client_status.name}</p>
+          <p>тип: {client.client_type.name}</p>
+        </div>
 
         <h5>Контакты клиента: </h5>
         {contacts &&
           contacts.map((contact) => (
             <div className="client-modal__items__contact"
-                 key={contact.id}>
+                 key={contact.id}
+            >
               <p>{contact.fcs}</p>
               <p>{contact.phone}</p>
             </div>

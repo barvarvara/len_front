@@ -7,7 +7,7 @@
   height: 60vh;
   justify-content: center;
   align-items: center;
-  background-color: $color-air-blue;
+  background-color: $color-bg-lighter;
   border-radius: 16px;
   overflow: hidden;
   padding: 20px 16px;
@@ -24,20 +24,7 @@
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-
-    &__contact {
-      border-radius: 16px;
-      border: #609DB6 1px solid;
-      padding: 16px 16px;
-    }
-  }
-
-  h4 {
-    font-size: 40px;
-  }
-
-  h5 {
-    font-size: 24px;
+    row-gap: 30px
   }
 
 

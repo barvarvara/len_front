@@ -6,8 +6,13 @@ import ProductsTab from './components/ProductsTab';
 import CertificatesTab from './components/CertificatesTab';
 import ClassesTab from './components/ClassesTab';
 import { Client, ClientStatus, ClientType, Contact, Tab } from '../../types/types';
-import { useGetClientsQuery, useLazyGetClientContactsQuery } from '../../logic/user/user.api';
+import {
+  useCreateClientMutation,
+  useGetClientsQuery,
+  useLazyGetClientContactsQuery
+} from '../../logic/user/clients.api';
 import ClientModal from './components/ClientModal';
+import CreateClientModal from './components/CreateClientModal';
 
 export type AdminPageProps = {}
 
@@ -23,17 +28,28 @@ const CLIENT_INIT: Client = {
 
 const AdminPage: React.FC<AdminPageProps> = () => {
   const { data } = useGetClientsQuery()
-  console.log(data)
+  const [fetchContacts, { data: contactsData }] = useLazyGetClientContactsQuery()
+  const [createClient] = useCreateClientMutation()
 
   const [clientModalVisible, setClientModalVisible] = useState(false);
+  const [createClientModalVisible, setCreateClientModalVisible] = useState(false);
 
   const [client, setClient] = useState(CLIENT_INIT)
-  const [fetchContacts, {data : contactsData} ] = useLazyGetClientContactsQuery()
+  const [newClient, setNewClient] = useState(CLIENT_INIT)
 
   const onPressClient = (client: Client) => {
     setClient(client)
     fetchContacts(client.id)
     setClientModalVisible(true)
+  }
+
+  const onPressCreateClient = async () => {
+    setCreateClientModalVisible(true)
+
+    // if (newClient) {
+    //   setNewClient(CLIENT_INIT)
+    //   await createClient(newClient).unwrap()
+    // }
   }
 
   const tabPages: Record<string, FC<any>> = {
@@ -64,14 +80,23 @@ const AdminPage: React.FC<AdminPageProps> = () => {
 
         <div className="admin-panel__tab-pages">
           <TabPage data={data}
-                   onPressClient={onPressClient}/>
+                   onPressClient={onPressClient}
+                   onPressCreateClient={onPressCreateClient}/>
         </div>
       </div>
 
       <ClientModal client={client}
                    contacts={contactsData}
                    visible={clientModalVisible}
-                   onClose={() => {setClientModalVisible(false)}}/>
+                   onClose={() => {setClientModalVisible(false)}}
+      />
+
+      <CreateClientModal client={newClient}
+        visible={createClientModalVisible}
+                         onClose={() => {setCreateClientModalVisible(false)}}
+      />
+
+
     </>
   )
 }

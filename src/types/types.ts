@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type Tab = {
   id: string | number;
   label: string | number;
@@ -41,5 +43,12 @@ export type ContactFilter = {
   last_name: string;
   middle_name: string;
   phone: string;
+}
+
+export type User = {
+  username: string,
+  email: string,
+  phone: string,
+  is_staff: boolean,
 }
 

@@ -21,8 +21,6 @@ const ClientCard: React.FC<ClientCardProps> = ({
         <p>{client.client_type.name}</p>
       </div>
 
-
-
     </div>
   );
 };

@@ -4,8 +4,9 @@ import { Client, Contact } from '../../types/types';
 
 type ClientsResponse = Client[]
 type ClientContactsResponse = Contact[]
+type ClientRequest = Client
 
-export const userApi = createApi({
+export const clientsApi = createApi({
     reducerPath: 'clients',
     baseQuery: fetchBaseQuery({
       baseUrl: CONFIG.BASE_URL
@@ -20,7 +21,15 @@ export const userApi = createApi({
 
       getClientContacts: build.query<ClientContactsResponse, number>({
         query: (client_id) => ({
-          url: `clients/${client_id}/contacts/`
+          url: `client-contacts/${client_id}/`
+        })
+      }),
+
+      createClient: build.mutation<any, ClientRequest>({
+        query: (body) => ({
+          url: 'clients/',
+          method: 'POST',
+          body
         })
       })
 
@@ -29,4 +38,4 @@ export const userApi = createApi({
   }
 )
 
-export const { useGetClientsQuery, useLazyGetClientContactsQuery } = userApi
+export const { useGetClientsQuery, useLazyGetClientContactsQuery, useCreateClientMutation } = clientsApi

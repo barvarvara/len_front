@@ -72,7 +72,31 @@ header {
   }
 }
 
+.header__dropdown-user {
+  display: none;
+  list-style: none;
+  position: absolute;
+  right: 32px;
+  overflow: auto;
+  background-color: $color-bg-lighter;
+  padding: 16px;
+}
+
+.header__dropdown-user__items {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+
+  h4 {
+    font-size: 32px;
+  }
+}
+
 .header__dropdown:hover .header__dropdown-menu {
+  display: inline-block;
+}
+
+.header__dropdown:hover .header__dropdown-user {
   display: inline-block;
 }
 

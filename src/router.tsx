@@ -1,4 +1,4 @@
-import { useRoutes } from 'react-router-dom';
+import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 import MainPage from './pages/Main';
 import LoginPage from './pages/Login';
 import MasterClasses from './pages/MasterClasses';
@@ -6,11 +6,26 @@ import AdminPage from './pages/AdminPage';
 import { Page404 } from './pages/Page404';
 import MainLayout from './layouts/MainLayout';
 import ProfilePageLayout from './layouts/ProfilePageLayout';
+import { RootState } from './store';
+import { useSelector } from 'react-redux';
 
 type ProtectedRouteProps = {
-  isAllowed: boolean;
-  redirectPath: string;
   children: any;
+};
+
+const ProtectedRoute = ({
+  children,
+}: ProtectedRouteProps) => {
+  const auth = useSelector((state: RootState) => state.auth);
+  console.log(auth)
+
+  if (auth.access) {
+    return children ?? <Outlet />;
+  } else if (!auth.access) {
+    return <Navigate to={'/login'} replace />;
+  } else {
+    return <div>Not found</div>;
+  }
 };
 
 export default function Router() {
@@ -30,12 +45,11 @@ export default function Router() {
     {
       path: '/admin',
       element: (
-        // <ProtectedRoute
-        //   isAllowed={userRole.includes("admin") || userRole.includes("jdg-chk") || userRole.includes("jdg-res")}
-        //   redirectPath="/adminAuth"
-        // >
-        <ProfilePageLayout title={"Админка"}> <AdminPage/> </ProfilePageLayout>
-        // </ProtectedRoute>
+        <ProtectedRoute>
+          <ProfilePageLayout title={'Админка'}>
+            <AdminPage/>
+          </ProfilePageLayout>
+        </ProtectedRoute>
       ),
     },
     {
