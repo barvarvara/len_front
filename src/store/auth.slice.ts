@@ -25,6 +25,7 @@ export const authSlice = createSlice({
     ) {
       state.refresh = action.payload.refresh
       state.access = action.payload.access
+      saveAccessTokenToLocalStorage(action.payload.access)
     },
 
     setAccount(state: AuthState, action: PayloadAction<UserAccountResponse | null>) {
@@ -32,6 +33,7 @@ export const authSlice = createSlice({
     },
 
     logout(state: AuthState) {
+      localStorage.removeItem("access_token")
       state.user = null;
       state.refresh = null;
       state.access = null;
@@ -41,6 +43,11 @@ export const authSlice = createSlice({
     //   return state.access != null
     // }
   }
-})
+});
+
+export const saveAccessTokenToLocalStorage = (value: string | null) => {
+  if (value)
+    localStorage.setItem('access_token', value);
+};
 
 export default authSlice;

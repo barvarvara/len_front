@@ -8,6 +8,8 @@ import MainLayout from './layouts/MainLayout';
 import ProfilePageLayout from './layouts/ProfilePageLayout';
 import { RootState } from './store';
 import { useSelector } from 'react-redux';
+import ProductGeneration from './pages/ProductGeneration';
+import { Canvas } from '@react-three/fiber';
 
 type ProtectedRouteProps = {
   children: any;
@@ -16,15 +18,17 @@ type ProtectedRouteProps = {
 const ProtectedRoute = ({
   children,
 }: ProtectedRouteProps) => {
-  const auth = useSelector((state: RootState) => state.auth);
-  console.log(auth)
+  // const auth = useSelector((state: RootState) => state.auth);
+  // console.log(auth)
 
-  if (auth.access) {
-    return children ?? <Outlet />;
-  } else if (!auth.access) {
-    return <Navigate to={'/login'} replace />;
+  const access_token = localStorage.getItem('access_token')
+
+  if (access_token) {
+    return children ?? <Outlet/>;
+  } else if (!access_token) {
+    return <Navigate to={'/login'} replace/>;
   } else {
-    return <div>Not found</div>;
+    return <div>Страница не найдена</div>;
   }
 };
 
@@ -41,6 +45,16 @@ export default function Router() {
     {
       path: '/masterclasses',
       element: <MainLayout> <MasterClasses/> </MainLayout>,
+    },
+    {
+      path: '/product-generation',
+      element:
+        <MainLayout>
+          <Canvas shadows camera={{ position: [3, 3, 3], fov: 50 }} style={{ 'height': '100vh' }}>
+            <ProductGeneration/>
+          </Canvas>
+        </MainLayout>
+      ,
     },
     {
       path: '/admin',

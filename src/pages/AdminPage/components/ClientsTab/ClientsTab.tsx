@@ -1,10 +1,9 @@
 import './ClientsTab.scss';
-import React, { useState } from 'react'
+import React from 'react'
 import TextInput from '../../../../components/ui/TextInput';
 import Button from '../../../../components/ui/Button';
-import { Client, ClientType, Contact } from '../../../../types/types';
+import { Client } from '../../../../types/types';
 import ClientCard from '../ClientCard';
-import { useGetClientsQuery } from '../../../../logic/user/clients.api';
 
 export type ClientsTabProps = {
   data: Client[],

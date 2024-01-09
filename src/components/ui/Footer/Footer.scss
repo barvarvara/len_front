@@ -30,6 +30,13 @@ footer {
   &:hover {
     text-decoration: underline;
   }
+
+  &_phone {
+    font-size: 20px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .copyright {

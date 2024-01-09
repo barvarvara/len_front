@@ -3,9 +3,7 @@ import Logo from '../../components/ui/Logo';
 import './LoginPage.scss'
 import TextInput from '../../components/ui/TextInput';
 import Button from '../../components/ui/Button';
-import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../../logic/user/userAuth.api';
-import authSlice from '../../store/auth.slice';
 import { useNavigate } from 'react-router-dom';
 
 export type LoginPageProps = {}

@@ -1,0 +1,50 @@
+@import "../../../../theme/colors";
+
+.card {
+  position: relative;
+  flex-grow: 1;
+  max-width: 46%;
+  border: 1px solid $color-logo;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    border-radius: 50px 50px 0 0;
+    opacity: 0.85;
+  }
+
+  h4 {
+    font-size: 30px;
+    font-weight: 100;
+  }
+
+  &:hover {
+    background-color: $color-bg-lighter;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .link {
+    font-size: 1rem;
+    border: solid 1px $color-logo;
+
+    &:hover {
+      background-color: $color-logo;
+      color: $color-bg;
+    }
+  }
+
+  figcaption {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+}

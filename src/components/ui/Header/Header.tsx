@@ -5,6 +5,7 @@ import Button from '../Button';
 import { User } from '../../../types/types';
 import { useDispatch } from 'react-redux';
 import authSlice from '../../../store/auth.slice';
+import { useNavigate } from 'react-router-dom';
 
 export type HeaderProps = {
   isMain: boolean,
@@ -16,9 +17,11 @@ const Header: React.FC<HeaderProps> = ({
   user
 }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(authSlice.actions.logout());
+    navigate('/');
   }
 
   return (
@@ -45,6 +48,7 @@ const Header: React.FC<HeaderProps> = ({
             <li><a href="/" className="header__nav-link"> Контакты </a></li>
             <li><a href="/" className="header__nav-link"> Расписание </a></li>
             <li><a href="/" className="header__nav-link"> О нас </a></li>
+            <li><a href="/product-generation" className="header__nav-link"> Сгенерировать идею </a></li>
 
           </ul>
         }

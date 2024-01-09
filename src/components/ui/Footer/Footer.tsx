@@ -14,9 +14,10 @@ const Footer: React.FC<FooterProps> = () => {
       </p>
 
       <ul className="footer__contacts">
-        <li><a href="/" className="footer__contact-link">Вконтакте</a></li>
-        <li><a href="/" className="footer__contact-link">WhatsApp</a></li>
-        <li><a href="/" className="footer__contact-link">Telegram</a></li>
+        <li><p className="footer__contact-link footer__contact-link_phone">8-980-394-75-30</p></li>
+        <li><a href="https://vk.com/len_goncharka" className="footer__contact-link">Вконтакте</a></li>
+        <li><a href="https://wa.me/79803947530" className="footer__contact-link">WhatsApp</a></li>
+        <li><a href="https://t.me/len_goncharka" className="footer__contact-link">Telegram</a></li>
       </ul>
     </footer>
   );

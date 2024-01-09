@@ -16,6 +16,7 @@ const ProfilePageLayout: React.FC<PageLayoutProps> = ({
 }) => {
   const auth = useSelector((state: RootState) => state.auth);
   const user = auth.user
+  console.log(auth.user)
 
   return (
     <>

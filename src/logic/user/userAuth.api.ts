@@ -35,7 +35,6 @@ export const userAuthApi = createApi({
             }))
 
             dispatch(authSlice.actions.setAccount(response.user));
-
           } catch (err) {
             console.log("Error while login!")
           }
