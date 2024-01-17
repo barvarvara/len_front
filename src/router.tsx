@@ -6,33 +6,28 @@ import AdminPage from './pages/AdminPage';
 import { Page404 } from './pages/Page404';
 import MainLayout from './layouts/MainLayout';
 import ProfilePageLayout from './layouts/ProfilePageLayout';
-import { RootState } from './store';
-import { useSelector } from 'react-redux';
 import ProductGeneration from './pages/ProductGeneration';
 import { Canvas } from '@react-three/fiber';
+import { useAuth, useUserInfo } from './store/customHooks';
 
 type ProtectedRouteProps = {
   children: any;
+  isAuth: boolean;
 };
 
 const ProtectedRoute = ({
   children,
+  isAuth
 }: ProtectedRouteProps) => {
-  // const auth = useSelector((state: RootState) => state.auth);
-  // console.log(auth)
-
-  const access_token = localStorage.getItem('access_token')
-
-  if (access_token) {
-    return children ?? <Outlet/>;
-  } else if (!access_token) {
+  if (!isAuth)
     return <Navigate to={'/login'} replace/>;
-  } else {
-    return <div>Страница не найдена</div>;
-  }
+  else
+    return children ?? <Outlet/>;
 };
 
 export default function Router() {
+  const { isAuth } = useAuth();
+
   return useRoutes([
     {
       path: '/',
@@ -59,7 +54,7 @@ export default function Router() {
     {
       path: '/admin',
       element: (
-        <ProtectedRoute>
+        <ProtectedRoute isAuth={isAuth}>
           <ProfilePageLayout title={'Админка'}>
             <AdminPage/>
           </ProfilePageLayout>

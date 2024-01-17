@@ -12,7 +12,11 @@ export const store = configureStore({
     auth: authSlice.reducer
   },
 
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(clientsApi.middleware, userAuthApi.middleware)
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(clientsApi.middleware,
+    userAuthApi.middleware,
+    userAccountsApi.middleware)
 })
+
+export const userSelector = (state: RootState) => state.auth;
 
 export type RootState = ReturnType<typeof store.getState>;

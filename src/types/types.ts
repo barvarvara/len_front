@@ -46,9 +46,9 @@ export type ContactFilter = {
 }
 
 export type User = {
-  username: string,
   email: string,
-  phone: string,
   is_staff: boolean,
+  phone: string,
+  username: string,
 }
 

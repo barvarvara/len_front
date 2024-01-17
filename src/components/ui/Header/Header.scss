@@ -76,10 +76,13 @@ header {
   display: none;
   list-style: none;
   position: absolute;
+
   right: 32px;
+
   overflow: auto;
   background-color: $color-bg-lighter;
-  padding: 16px;
+  padding: 32px;
+  border-radius: 32px;
 }
 
 .header__dropdown-user__items {
@@ -124,10 +127,7 @@ header {
 }
 
 .header__user-icon_dropdown {
-  @include user-icon("./assets/user-svg/user-minimalizm.svg")
-}
-
-.header__user-icon_dropdown {
+  @include user-icon("./assets/user-svg/user-minimalizm.svg");
   mask-image: url("./assets/user-svg/user-with-arrow.svg");
 }
 

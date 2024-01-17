@@ -6,6 +6,7 @@ import { User } from '../../../types/types';
 import { useDispatch } from 'react-redux';
 import authSlice from '../../../store/auth.slice';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../store/customHooks';
 
 export type HeaderProps = {
   isMain: boolean,
@@ -23,6 +24,8 @@ const Header: React.FC<HeaderProps> = ({
     dispatch(authSlice.actions.logout());
     navigate('/');
   }
+
+  const { isAuth } = useAuth()
 
   return (
     <header className="container-header">
@@ -61,13 +64,13 @@ const Header: React.FC<HeaderProps> = ({
       </nav>
 
       {isMain &&
-        <a href="/login" className="header__user-icon"> </a>
+        <a href={isAuth ? '/admin' : '/login'} className="header__user-icon"> </a>
       }
 
       {!isMain && user &&
         <>
           <div className="header__dropdown">
-            <a href="/login" className="header__user-icon_dropdown"> </a>
+            <a href={isAuth ? '/admin' : '/login'} className="header__user-icon_dropdown"> </a>
 
             <div className="header__dropdown-container">
               <div className="header__dropdown-user">

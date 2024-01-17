@@ -13,6 +13,7 @@ import {
 } from '../../logic/user/clients.api';
 import ClientModal from './components/ClientModal';
 import CreateClientModal from './components/CreateClientModal';
+import { useGetUsersQuery } from '../../logic/user/userAccounts.api';
 
 export type AdminPageProps = {}
 
@@ -27,7 +28,7 @@ const CLIENT_INIT: Client = {
 }
 
 const AdminPage: React.FC<AdminPageProps> = () => {
-  const { data } = useGetClientsQuery()
+  const { data: clientData } = useGetClientsQuery()
   const [fetchContacts, { data: contactsData }] = useLazyGetClientContactsQuery()
   const [createClient] = useCreateClientMutation()
 
@@ -79,9 +80,12 @@ const AdminPage: React.FC<AdminPageProps> = () => {
         <Tabs selectedId={selectedId} tabs={tabs} onClick={handleTabClick}/>
 
         <div className="admin-panel__tab-pages">
-          <TabPage data={data}
-                   onPressClient={onPressClient}
-                   onPressCreateClient={onPressCreateClient}/>
+
+          {clientData &&
+            <TabPage data={clientData}
+                     onPressClient={onPressClient}
+                     onPressCreateClient={onPressCreateClient}/>
+          }
         </div>
       </div>
 
@@ -92,7 +96,7 @@ const AdminPage: React.FC<AdminPageProps> = () => {
       />
 
       <CreateClientModal client={newClient}
-        visible={createClientModalVisible}
+                         visible={createClientModalVisible}
                          onClose={() => {setCreateClientModalVisible(false)}}
       />
 

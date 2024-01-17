@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { CONFIG } from '../../config';
 import { Client, Contact } from '../../types/types';
+import { getAccessTokenFromLocalStorage } from '../../store/localStorage';
 
 type UserAccountsResponse = {
   username: string,
@@ -15,9 +16,10 @@ export const userAccountsApi = createApi({
       baseUrl: CONFIG.BASE_URL
     }),
     endpoints: build => ({
-      getClients: build.query<UserAccountsResponse, void>({
+      getUsers: build.query<UserAccountsResponse, void>({
         query: () => ({
-            url: 'users/',
+            headers: {Authorization: 'Bearer ' + getAccessTokenFromLocalStorage()},
+            url: 'users/'
           }
         )
       }),
@@ -26,4 +28,4 @@ export const userAccountsApi = createApi({
   }
 )
 
-export const { useGetClientsQuery } = userAccountsApi
+export const { useGetUsersQuery } = userAccountsApi

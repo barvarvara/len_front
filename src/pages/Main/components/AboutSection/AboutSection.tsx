@@ -27,7 +27,7 @@ const AboutSection = () => {
 
       <Link title="О гончарке"
             addStyle="about__link"
-            onPress={() => navigate("/admin")}
+            onPress={() => navigate("/")}
       />
 
       <img className="about__photo" src={require("./assets/alena5-sqr.jpg")} alt=""/>

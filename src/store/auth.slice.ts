@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../types/types';
+import {
+  deleteAccessTokenFromLocalStorage, getAccessTokenFromLocalStorage,
+  saveAccessTokenToLocalStorage,
+} from './localStorage';
 
 export type UserAccountResponse = User
 
@@ -10,7 +14,7 @@ type AuthState = {
 };
 
 const initialState: AuthState = {
-  access: null,
+  access: getAccessTokenFromLocalStorage(),
   refresh: null,
   user: null
 }
@@ -33,21 +37,14 @@ export const authSlice = createSlice({
     },
 
     logout(state: AuthState) {
-      localStorage.removeItem("access_token")
+      deleteAccessTokenFromLocalStorage();
       state.user = null;
       state.refresh = null;
       state.access = null;
     },
-
-    // isAuth(state: AuthState) {
-    //   return state.access != null
-    // }
   }
 });
 
-export const saveAccessTokenToLocalStorage = (value: string | null) => {
-  if (value)
-    localStorage.setItem('access_token', value);
-};
+
 
 export default authSlice;

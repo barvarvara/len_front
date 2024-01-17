@@ -5,6 +5,15 @@
   font-family: Rawline, sans-serif;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
 @font-face {
   font-family: Rawline;
   src: url("assets/fonts/rawline/rawline-100.ttf") format("truetype");

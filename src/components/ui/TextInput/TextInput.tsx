@@ -7,6 +7,8 @@ export type TextInputProps = {
   addStyle?: string,
   value?: string,
   onChangeText: (t: string) => void;
+  secure?: boolean;
+  inputType?: string;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -14,7 +16,9 @@ const TextInput: React.FC<TextInputProps> = ({
   label,
   addStyle,
   value,
-  onChangeText
+  onChangeText,
+  secure,
+  inputType,
 }) => {
   return (
     <>
@@ -26,7 +30,9 @@ const TextInput: React.FC<TextInputProps> = ({
         <input className={`form-text-input ${addStyle}`}
                placeholder={`${placeholder}`}
                value={value}
-               onChange={(event) => onChangeText(event.target.value)}/>
+               onChange={(event) => onChangeText(event.target.value)}
+               type={inputType ?? (secure ? 'password' : 'text')}
+        />
       </div>
 
     </>

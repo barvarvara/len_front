@@ -5,10 +5,12 @@ import TextInput from '../../components/ui/TextInput';
 import Button from '../../components/ui/Button';
 import { useLoginMutation } from '../../logic/user/userAuth.api';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../../store';
+import { showToast } from '../../services/alertServices';
 
 export type LoginPageProps = {}
 
-const USER_INITIAL = { username: '', password: '' }
 
 const LoginPage: React.FC<LoginPageProps> = () => {
   const navigate = useNavigate();
@@ -16,6 +18,13 @@ const LoginPage: React.FC<LoginPageProps> = () => {
   useEffect(() => {
     document.title = 'Вход';
   }, []);
+
+  const { user } = useSelector(userSelector)
+
+  const USER_INITIAL = {
+    username: user ? user.username : '',
+    password: '',
+  }
 
   const [login] = useLoginMutation()
   const [userInfo, setUserInfo] = useState(USER_INITIAL)
@@ -32,15 +41,15 @@ const LoginPage: React.FC<LoginPageProps> = () => {
 
   const handleLogin = async () => {
     if (userInfo) {
-      await login(userInfo)
-      navigate("/admin")
+      login(userInfo).unwrap()
+        .then((payload) => navigate('/admin'))
+        .catch((error) => showToast(error.message.detail, 'error'))
     }
   }
 
   return (
     <main>
       <section className="login-container">
-
         <div className="login">
           <Logo addStyle="login__logo"/>
 
@@ -48,12 +57,16 @@ const LoginPage: React.FC<LoginPageProps> = () => {
             <TextInput placeholder="Имя пользователя"
                        addStyle="form-text-input"
                        value={userInfo.username}
-                       onChangeText={setUserName}/>
+                       onChangeText={setUserName}
+                       inputType={'text'}
+            />
 
             <TextInput placeholder="Пароль"
                        addStyle="form-text-input"
                        value={userInfo.password}
-                       onChangeText={setPassword}/>
+                       onChangeText={setPassword}
+                       inputType={'password'}
+            />
 
             <Button type="submit"
                     addStyleClass="btn__login"

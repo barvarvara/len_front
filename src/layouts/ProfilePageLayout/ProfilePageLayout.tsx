@@ -1,9 +1,7 @@
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import React, { ReactNode } from 'react';
-import { User } from '../../types/types';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { useUserInfo } from '../../store/customHooks';
 
 export type PageLayoutProps = {
   title: string;
@@ -14,14 +12,12 @@ const ProfilePageLayout: React.FC<PageLayoutProps> = ({
   title,
   children
 }) => {
-  const auth = useSelector((state: RootState) => state.auth);
-  const user = auth.user
-  console.log(auth.user)
+  const user = useUserInfo();
 
   return (
     <>
       <Header isMain={false}
-              user={user} />
+              user={user}/>
 
       <main>
         <h1 className="container-title">{title}</h1>
