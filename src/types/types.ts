@@ -34,8 +34,8 @@ export type Contact = {
   id: number;
   fcs: string;
   phone: string;
-  birthday: string;
-  ban_on_spam: boolean;
+  type: string;
+  client: Client;
 }
 
 export type ContactFilter = {

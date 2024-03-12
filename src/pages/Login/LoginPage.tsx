@@ -41,9 +41,12 @@ const LoginPage: React.FC<LoginPageProps> = () => {
 
   const handleLogin = async () => {
     if (userInfo) {
-      login(userInfo).unwrap()
-        .then((payload) => navigate('/admin'))
-        .catch((error) => showToast(error.message.detail, 'error'))
+      login(userInfo).unwrap().then((payload) => {
+        if (payload?.user?.is_staff)
+          navigate('/admin')
+        else
+          navigate('/lk')
+      }).catch((error) => showToast(error.message.detail, 'error'))
     }
   }
 

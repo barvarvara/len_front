@@ -6,9 +6,8 @@ import AdminPage from './pages/AdminPage';
 import { Page404 } from './pages/Page404';
 import MainLayout from './layouts/MainLayout';
 import ProfilePageLayout from './layouts/ProfilePageLayout';
-import ProductGeneration from './pages/ProductGeneration';
-import { Canvas } from '@react-three/fiber';
-import { useAuth, useUserInfo } from './store/customHooks';
+import ProductGenerationPage from './pages/ProductGeneration';
+import { getIsAuthFromLocalStorage } from './store/localStorage';
 
 type ProtectedRouteProps = {
   children: any;
@@ -26,7 +25,7 @@ const ProtectedRoute = ({
 };
 
 export default function Router() {
-  const { isAuth } = useAuth();
+  const isAuth = getIsAuthFromLocalStorage() === "true"
 
   return useRoutes([
     {
@@ -45,9 +44,7 @@ export default function Router() {
       path: '/product-generation',
       element:
         <MainLayout>
-          <Canvas shadows camera={{ position: [3, 3, 3], fov: 50 }} style={{ 'height': '100vh' }}>
-            <ProductGeneration/>
-          </Canvas>
+          <ProductGenerationPage/>
         </MainLayout>
       ,
     },

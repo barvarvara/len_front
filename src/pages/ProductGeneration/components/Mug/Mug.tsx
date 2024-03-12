@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import React, { ForwardRefExoticComponent, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Decal, useGLTF, useTexture } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { useControls } from 'leva';
@@ -92,12 +92,14 @@ const Mug = (props: JSX.IntrinsicElements['group']) => {
                 rotation={rotation}
                 scale={1}
               >
+
                 <meshBasicMaterial
                   map={texture}
                   transparent
                   polygonOffset
                   polygonOffsetFactor={-1}
                 />
+
               </Decal>
 
             </mesh>

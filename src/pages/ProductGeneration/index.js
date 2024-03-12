@@ -1,1 +1,1 @@
-export {default} from './ProductGeneration'
+export {default} from './ProductGenerationPage'

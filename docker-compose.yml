@@ -13,5 +13,5 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     stdin_open: true
-    restart: always
+#    restart: always
     command: sh -c "npm start"

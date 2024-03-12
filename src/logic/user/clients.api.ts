@@ -14,20 +14,20 @@ export const clientsApi = createApi({
     endpoints: build => ({
       getClients: build.query<ClientsResponse, void>({
         query: () => ({
-            url: 'clients/',
+            url: 'api/clients/',
           }
         )
       }),
 
       getClientContacts: build.query<ClientContactsResponse, number>({
         query: (client_id) => ({
-          url: `client-contacts/${client_id}/`
+          url: `api/client-contacts/${client_id}/`
         })
       }),
 
       createClient: build.mutation<any, ClientRequest>({
         query: (body) => ({
-          url: 'clients/',
+          url: 'api/clients/',
           method: 'POST',
           body
         })

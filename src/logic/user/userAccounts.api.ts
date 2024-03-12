@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { CONFIG } from '../../config';
 import { Client, Contact } from '../../types/types';
-import { getAccessTokenFromLocalStorage } from '../../store/localStorage';
+import { getRefreshTokenFromLocalStorage } from '../../store/localStorage';
 
 type UserAccountsResponse = {
   username: string,
@@ -18,8 +18,8 @@ export const userAccountsApi = createApi({
     endpoints: build => ({
       getUsers: build.query<UserAccountsResponse, void>({
         query: () => ({
-            headers: {Authorization: 'Bearer ' + getAccessTokenFromLocalStorage()},
-            url: 'users/'
+            headers: {Authorization: 'Bearer ' + getRefreshTokenFromLocalStorage()},
+            url: 'api/users/'
           }
         )
       }),

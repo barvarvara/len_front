@@ -1,13 +1,24 @@
-export const saveAccessTokenToLocalStorage = (value: string | null) => {
+export const saveRefreshTokenToLocalStorage = (value: string | null) => {
   if (value)
-    localStorage.setItem('access_token', value);
+    localStorage.setItem('refresh_token', value);
 };
 
-export const getAccessTokenFromLocalStorage = () => {
-  return localStorage.getItem('access_token');
+export const getRefreshTokenFromLocalStorage = () => {
+  return localStorage.getItem('refresh_token');
 };
 
-export const deleteAccessTokenFromLocalStorage = () => {
-  localStorage.removeItem('access_token');
+export const deleteRefreshTokenFromLocalStorage = () => {
+  localStorage.removeItem('refresh_token');
 };
+
+
+export const setIsAuthInLocalStorage = (value: boolean | null) => {
+  if (value)
+    localStorage.setItem('isAuth', String(value));
+};
+
+export const getIsAuthFromLocalStorage = () => {
+  return localStorage.getItem('isAuth');
+};
+
 
